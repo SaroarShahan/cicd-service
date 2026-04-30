@@ -52,4 +52,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: eu-north-1
-      - run: aws s3 sync dist/ s3://cicd-service-567274078403-eu-north-1-ane --delete
+      - run: aws s3 sync dist/ s3://cicd-service-567274078403-eu-north-1-an --delete
