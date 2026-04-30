@@ -25,7 +25,7 @@ jobs:
         run: yarn build
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: dist
           path: dist/
@@ -40,7 +40,7 @@ jobs:
 
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           name: dist
           path: dist/
@@ -50,6 +50,5 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: eu-north-1
       - run: aws s3 sync dist/ s3://cicd-service-567274078403-eu-north-1-an --delete
